@@ -1,0 +1,131 @@
+2025-07-07 12:04:19,647 - src.embeddings - INFO - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:04:19,648 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:04:53,900 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-07-07 12:04:53,901 - src.embeddings - INFO - Model loaded successfully
+2025-07-07 12:04:53,901 - src.legal_ner - INFO - Loading Legal NER model: jio/Legal-BERT-NER
+2025-07-07 12:04:54,135 - src.legal_ner - ERROR - Error loading Legal NER model jio/Legal-BERT-NER: jio/Legal-BERT-NER is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-07-07 12:06:53,676 - src.embeddings - INFO - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:06:53,677 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:06:54,393 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-07-07 12:06:54,393 - src.embeddings - INFO - Model loaded successfully
+2025-07-07 12:06:54,394 - src.legal_ner - INFO - Loading Legal NER model: jio/Legal-BERT-NER
+2025-07-07 12:06:54,689 - src.legal_ner - ERROR - Error loading Legal NER model jio/Legal-BERT-NER: jio/Legal-BERT-NER is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-07-07 12:16:46,357 - src.embeddings - INFO - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:16:46,359 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:16:46,627 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-07-07 12:16:46,627 - src.embeddings - INFO - Model loaded successfully
+2025-07-07 12:16:46,627 - src.legal_ner - INFO - Attempting to load NER model: dbmdz/bert-large-cased-finetuned-conll03-english
+2025-07-07 12:16:49,219 - src.legal_ner - INFO - NER model loaded successfully: dbmdz/bert-large-cased-finetuned-conll03-english
+2025-07-07 12:16:49,220 - src.legal_ner - INFO - Available entity labels: ['O', 'B-MISC', 'I-MISC', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC']
+2025-07-07 12:20:20,465 - src.embeddings - INFO - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:20:20,465 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-07-07 12:20:21,074 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-07-07 12:20:21,074 - src.embeddings - INFO - Model loaded successfully
+2025-07-07 12:20:21,075 - src.legal_ner - INFO - Attempting to load NER model: dbmdz/bert-large-cased-finetuned-conll03-english
+2025-07-07 12:20:25,189 - src.legal_ner - INFO - NER model loaded successfully: dbmdz/bert-large-cased-finetuned-conll03-english
+2025-07-07 12:20:25,189 - src.legal_ner - INFO - Available entity labels: ['O', 'B-MISC', 'I-MISC', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC']
+2025-07-07 12:20:25,202 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:25,204 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:25,205 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:25,206 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:39,036 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:39,037 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:39,037 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:39,038 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:39,156 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:39,157 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:39,158 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:39,159 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:44,451 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:44,452 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:44,453 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:44,454 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:55,355 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:55,355 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:55,356 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:55,357 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:57,836 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:57,836 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:57,837 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:57,838 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:57,958 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:57,959 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:57,960 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:57,961 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:58,501 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:58,502 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:58,503 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:58,504 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:58,626 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:58,627 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:58,628 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:58,629 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:58,756 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:58,758 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:58,759 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:58,761 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:58,889 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:58,893 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:58,896 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:58,897 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:58,898 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:58,899 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:59,011 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:59,012 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:20:59,162 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:20:59,163 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:20:59,164 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:20:59,165 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:00,084 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:00,084 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:00,085 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:00,086 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:00,207 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:00,208 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:00,209 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:00,210 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:02,268 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:02,269 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:02,269 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:02,270 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:02,393 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:02,394 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:02,395 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:02,396 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:34,668 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:34,668 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:34,669 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:34,670 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:34,802 - src.document_processor - INFO - Processed document uploads/gst_rate_textile_products.txt: 5 chunks created
+2025-07-07 12:21:34,803 - src.document_processor - INFO - Processed document uploads/income_tax_deduction_education.txt: 3 chunks created
+2025-07-07 12:21:34,805 - src.document_processor - INFO - Processed document uploads/property_registration_process.txt: 6 chunks created
+2025-07-07 12:21:34,807 - src.document_processor - INFO - Processed document uploads/court_fee_structure.txt: 6 chunks created
+2025-07-07 12:21:35,276 - src.embeddings - INFO - Generated embeddings for 1 texts
+2025-07-07 12:21:37,107 - src.embeddings - INFO - Generated embeddings for 20 texts
+2025-07-07 12:21:37,284 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:38,865 - src.legal_ner - INFO - Extracted 4 entities from text
+2025-07-07 12:21:40,696 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:42,507 - src.legal_ner - INFO - Extracted 1 entities from text
+2025-07-07 12:21:43,859 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:44,071 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:45,427 - src.legal_ner - INFO - Extracted 6 entities from text
+2025-07-07 12:21:46,645 - src.legal_ner - INFO - Extracted 5 entities from text
+2025-07-07 12:21:47,666 - src.legal_ner - INFO - Extracted 1 entities from text
+2025-07-07 12:21:49,215 - src.legal_ner - INFO - Extracted 4 entities from text
+2025-07-07 12:21:50,624 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:51,798 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:53,020 - src.legal_ner - INFO - Extracted 1 entities from text
+2025-07-07 12:21:54,295 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:54,568 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:56,676 - src.legal_ner - INFO - Extracted 3 entities from text
+2025-07-07 12:21:58,367 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:21:59,951 - src.legal_ner - INFO - Extracted 2 entities from text
+2025-07-07 12:22:01,151 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:22:02,559 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:22:02,870 - src.legal_ner - INFO - Extracted 0 entities from text
+2025-07-07 12:22:02,877 - src.similarity_methods - INFO - Cosine similarity search completed. Top score: 0.6940
+2025-07-07 12:22:02,878 - src.similarity_methods - INFO - Euclidean distance search completed. Top score: 0.5611
+2025-07-07 12:22:02,930 - src.similarity_methods - INFO - MMR search completed. Selected 10 diverse documents
+2025-07-07 12:22:02,931 - src.similarity_methods - INFO - Hybrid similarity search completed. Top score: 0.4164
