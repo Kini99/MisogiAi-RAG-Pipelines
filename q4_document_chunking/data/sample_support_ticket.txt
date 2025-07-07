@@ -1,0 +1,309 @@
+Support Ticket #TKT-2024-001
+
+Customer: John Smith (john.smith@company.com)
+Priority: High
+Status: Open
+Created: 2024-01-15 09:30:00
+
+Subject: API Authentication Issues - 401 Unauthorized Errors
+
+Customer: Hi, I'm getting 401 Unauthorized errors when trying to access the API. I've been using the same API key for months and it was working fine until yesterday. Can you help me troubleshoot this?
+
+Agent: Hello John, I'm sorry to hear you're experiencing authentication issues. Let me help you troubleshoot this. First, let me check your account status and API key.
+
+I can see that your API key is still active and hasn't expired. Let's go through some troubleshooting steps:
+
+1. Can you confirm you're using the correct API key format? It should start with "sk_" followed by a long string of characters.
+
+2. Are you including the "Bearer " prefix in your Authorization header? The format should be:
+   Authorization: Bearer sk_your_api_key_here
+
+3. Can you share the exact error message you're receiving?
+
+Customer: Thanks for the quick response. Yes, I'm using the correct format with "Bearer " prefix. The exact error message is:
+
+{
+  "error": "invalid_token",
+  "error_description": "The access token is invalid or expired",
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+
+I'm using the Python SDK as shown in your documentation.
+
+Agent: Thank you for providing the error details. I can see the issue now. Looking at your account, I notice that your API key was rotated yesterday as part of our security update. This is why you're getting the "invalid_token" error.
+
+Here's what happened:
+- We performed a scheduled security update yesterday at 2:00 AM UTC
+- As part of this update, all API keys were automatically rotated
+- You should have received an email notification about this
+
+To resolve this issue:
+
+1. Check your email for the notification from us (it might be in your spam folder)
+2. Generate a new API key from your dashboard
+3. Update your application with the new API key
+
+Here's how to generate a new API key:
+1. Log into your dashboard at https://dashboard.example.com
+2. Go to Settings > API Keys
+3. Click "Generate New Key"
+4. Copy the new key and update your application
+
+Customer: I found the email! Thank you for the clarification. I've generated a new API key and updated my application. It's working now.
+
+Just to confirm - will this happen again? I want to make sure my application doesn't break unexpectedly.
+
+Agent: Great to hear it's working now! 
+
+Regarding your question about future key rotations:
+- We typically rotate API keys quarterly as part of our security practices
+- We always send advance notifications via email (usually 7 days before)
+- You can also check our status page for maintenance announcements
+- For critical applications, I recommend implementing automatic key rotation in your code
+
+Here are some best practices to prevent future issues:
+1. Set up email notifications for your account
+2. Implement retry logic with exponential backoff
+3. Monitor your application logs for authentication errors
+4. Consider using webhooks for real-time notifications
+
+Would you like me to send you some code examples for implementing automatic key rotation?
+
+Customer: Yes, that would be very helpful! I want to make sure my application is resilient to these changes.
+
+Agent: Perfect! I'll send you some code examples for implementing automatic key rotation. Here's a Python example that handles key rotation gracefully:
+
+```python
+import requests
+import time
+from typing import Optional
+
+class ResilientAPIClient:
+    def __init__(self, api_key: str, key_rotation_url: str):
+        self.api_key = api_key
+        self.key_rotation_url = key_rotation_url
+        self.max_retries = 3
+        
+    def make_request(self, url: str, method: str = 'GET', **kwargs):
+        for attempt in range(self.max_retries):
+            try:
+                headers = {
+                    'Authorization': f'Bearer {self.api_key}',
+                    'Content-Type': 'application/json'
+                }
+                
+                response = requests.request(method, url, headers=headers, **kwargs)
+                
+                if response.status_code == 401:
+                    # Try to get a new API key
+                    new_key = self._rotate_api_key()
+                    if new_key:
+                        self.api_key = new_key
+                        continue
+                
+                return response
+                
+            except Exception as e:
+                if attempt == self.max_retries - 1:
+                    raise e
+                time.sleep(2 ** attempt)  # Exponential backoff
+    
+    def _rotate_api_key(self) -> Optional[str]:
+        try:
+            # Call your key rotation endpoint
+            response = requests.post(self.key_rotation_url)
+            if response.status_code == 200:
+                return response.json()['new_api_key']
+        except:
+            pass
+        return None
+```
+
+I'll also send you:
+1. JavaScript/Node.js version
+2. Configuration examples
+3. Monitoring setup instructions
+
+Is there anything specific about your application architecture that I should consider in these examples?
+
+Customer: This is exactly what I need! The Python example looks great. I'm using a microservices architecture with multiple services that need API access. Should I implement this in each service, or is there a better approach?
+
+Agent: Excellent question! For a microservices architecture, I'd recommend a centralized approach rather than implementing key rotation in each service. Here are the best practices:
+
+**Option 1: API Gateway Pattern (Recommended)**
+- Implement the resilient client in your API gateway
+- All services communicate through the gateway
+- Single point of key management
+- Easier to maintain and monitor
+
+**Option 2: Shared Configuration Service**
+- Create a dedicated configuration service
+- Store API keys in a secure configuration store (like HashiCorp Vault or AWS Secrets Manager)
+- Services fetch keys from the configuration service
+- Automatic key rotation handled centrally
+
+**Option 3: Sidecar Pattern**
+- Implement a sidecar container in each service
+- Sidecar handles API key management and rotation
+- Services communicate with the sidecar for external API calls
+
+Here's a quick example of the API Gateway approach:
+
+```python
+# API Gateway implementation
+class APIGateway:
+    def __init__(self):
+        self.api_client = ResilientAPIClient(
+            api_key=os.getenv('API_KEY'),
+            key_rotation_url=os.getenv('KEY_ROTATION_URL')
+        )
+    
+    def forward_request(self, service_name: str, endpoint: str, **kwargs):
+        # Add service-specific headers
+        headers = kwargs.get('headers', {})
+        headers['X-Service-Name'] = service_name
+        
+        # Forward to external API
+        return self.api_client.make_request(endpoint, headers=headers, **kwargs)
+```
+
+Which approach would work best with your current architecture?
+
+Customer: The API Gateway approach sounds perfect for our setup. We already have a gateway, so I can integrate this there. 
+
+One more question - how do I handle the key rotation endpoint? Do you provide one, or do I need to implement it myself?
+
+Agent: Great choice! The API Gateway approach will definitely be the cleanest for your setup.
+
+Regarding the key rotation endpoint - we do provide one! Here are the details:
+
+**Our Key Rotation Endpoint:**
+- URL: `https://api.example.com/v2/auth/rotate-key`
+- Method: POST
+- Authentication: Requires your current API key
+- Response: Returns new API key immediately
+
+Here's how to use it:
+
+```python
+def _rotate_api_key(self) -> Optional[str]:
+    try:
+        headers = {
+            'Authorization': f'Bearer {self.api_key}',
+            'Content-Type': 'application/json'
+        }
+        
+        response = requests.post(
+            'https://api.example.com/v2/auth/rotate-key',
+            headers=headers
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            return data['new_api_key']
+        else:
+            # Log the error and fall back to manual rotation
+            logger.error(f"Key rotation failed: {response.status_code}")
+            return None
+            
+    except Exception as e:
+        logger.error(f"Key rotation error: {e}")
+        return None
+```
+
+**Important Notes:**
+1. The old key remains valid for 24 hours after rotation (grace period)
+2. You can also rotate keys manually through the dashboard
+3. We recommend implementing a fallback mechanism for cases where automatic rotation fails
+
+Would you like me to send you the complete integration guide for your API Gateway?
+
+Customer: Perfect! This is exactly what I needed. The grace period is really helpful for a smooth transition. 
+
+Yes, please send me the complete integration guide. I want to make sure I implement this correctly.
+
+Agent: Excellent! I'll send you the complete integration guide. It will include:
+
+1. **Complete API Gateway Integration Code**
+   - Full implementation with error handling
+   - Configuration management
+   - Logging and monitoring setup
+
+2. **Deployment Guide**
+   - Environment variables setup
+   - Health checks
+   - Monitoring alerts
+
+3. **Testing Strategy**
+   - Unit tests for the resilient client
+   - Integration tests with our API
+   - Load testing scenarios
+
+4. **Monitoring Setup**
+   - Key rotation success/failure metrics
+   - API response time monitoring
+   - Alert configuration
+
+I'll also include some additional best practices:
+- Circuit breaker pattern for API calls
+- Request/response caching
+- Rate limiting integration
+- Security considerations
+
+The guide will be sent to your email within the next hour. In the meantime, you can start implementing the basic resilient client I provided earlier.
+
+Is there anything specific about your monitoring or deployment setup that I should include in the guide?
+
+Customer: That sounds comprehensive! I'm using Prometheus for monitoring and Kubernetes for deployment, so if you could include those specifics, that would be great.
+
+Agent: Perfect! I'll customize the guide for Prometheus and Kubernetes. This will include:
+
+**Prometheus Integration:**
+- Custom metrics for key rotation events
+- API response time histograms
+- Error rate monitoring
+- Grafana dashboard templates
+
+**Kubernetes Deployment:**
+- Helm charts for easy deployment
+- ConfigMaps and Secrets management
+- Horizontal Pod Autoscaler configuration
+- Ingress setup with proper routing
+
+**Additional Kubernetes-specific features:**
+- Pod disruption budgets
+- Resource limits and requests
+- Liveness and readiness probes
+- Service mesh integration (if you're using Istio/Linkerd)
+
+The guide will also include:
+- Prometheus alert rules for key rotation failures
+- Kubernetes health check endpoints
+- Deployment rollback strategies
+- Multi-environment configuration (dev/staging/prod)
+
+I'll send this comprehensive guide to your email. It should cover everything you need for a production-ready implementation.
+
+Is there anything else you'd like me to include or clarify before I send the guide?
+
+Customer: That sounds perfect! Thank you so much for all your help. The guide should cover everything I need.
+
+Just to confirm - my ticket can be closed now, right? The issue is resolved and I have a clear path forward.
+
+Agent: Absolutely! Your issue has been fully resolved and you have a clear implementation plan. 
+
+**Ticket Summary:**
+- ✅ Root cause identified: API key rotation during security update
+- ✅ Immediate fix applied: New API key generated and working
+- ✅ Long-term solution provided: Resilient client with automatic key rotation
+- ✅ Architecture guidance: API Gateway integration approach
+- ✅ Complete implementation guide: Coming via email with Prometheus/K8s specifics
+
+**Ticket Status: RESOLVED**
+
+I'm closing this ticket now. You'll receive the complete integration guide via email within the hour. If you have any questions during implementation, feel free to open a new ticket or reference this ticket number (TKT-2024-001).
+
+Thank you for your patience and for being proactive about preventing future issues. Your approach to building resilient applications is exactly what we recommend!
+
+**Ticket closed: 2024-01-15 11:45:00**
+**Resolution: API key rotation during security update. New key provided and resilient client implementation guide sent.** 
